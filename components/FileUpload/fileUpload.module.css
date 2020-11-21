@@ -1,0 +1,18 @@
+.dropContainer {
+  padding: 3rem;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  border: 0.5rem dashed gray;
+  cursor: pointer;
+  text-align: center;
+  height: 100%;
+}
+.active {
+  border: solid;
+  color: transparent;
+  background: lightgreen;
+}

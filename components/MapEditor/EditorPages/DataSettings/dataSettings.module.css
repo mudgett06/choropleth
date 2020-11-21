@@ -1,0 +1,24 @@
+.table {
+  border-spacing: 0 0.25rem;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.table tr {
+  background: gainsboro;
+}
+
+.tableData {
+  padding: 0.5rem;
+  background: transparent;
+  text-align: center;
+}
+
+.gripLinesTd {
+  background: white;
+}
+
+.gripLinesIcon {
+  margin: 0;
+  margin-right: 0.5rem;
+}

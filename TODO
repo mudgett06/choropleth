@@ -1,0 +1,20 @@
+loading spinners for:
+    loading user maps
+choropleth color select scroll box width
+*editor container formatting*
+filter guesses
+
+
+dropzone included in my maps;
+don't create map until file is dropped;
+set databox and search titles to match identifier prop of properties
+
+getting geoids:
+    guess geographies: {fieldName:(geoType,geoTypeType)}}
+    data.map=>{[feat.geoTypeType]:feat.fieldName}
+    .sort(by descending size )
+    db.findAll(or:sortedfeats).
+    sort(by descending size)
+
+
+store topojson in mongodb

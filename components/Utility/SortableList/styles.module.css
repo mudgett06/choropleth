@@ -1,0 +1,39 @@
+.draggableBlock {
+  display: flex;
+  align-items: center;
+}
+
+.draggableBlock ul {
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  border: 1px solid gainsboro;
+  box-shadow: 4px -1px 10px -3px rgba(0, 0, 0, 0.44);
+  margin: 0.25rem 0;
+  border-radius: 5px;
+  max-height: 3rem;
+  transition: max-height 0.5s;
+  overflow: hidden;
+  flex: 1;
+}
+
+.active {
+  max-height: 10000rem;
+  transition: 0.5s;
+}
+
+.iconContainer {
+  visibility: hidden;
+  display: flex;
+}
+
+.moveIcon,
+.deleteIcon {
+  margin: 0 0.5rem;
+}
+
+.draggableBlock:hover > .iconContainer {
+  visibility: visible;
+}

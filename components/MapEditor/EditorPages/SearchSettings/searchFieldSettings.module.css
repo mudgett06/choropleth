@@ -1,0 +1,61 @@
+.moveIcon,
+.deleteIcon {
+  margin: 0 0.5rem;
+}
+
+.searchFieldBlock:hover .iconContainer,
+.iconContainer:hover {
+  visibility: visible;
+}
+
+.expanded {
+  max-height: 10rem;
+  transition: 0.5s;
+  cursor: default;
+}
+
+.expandIcon {
+  margin-left: 0.5rem;
+}
+
+.searchFieldTitle {
+  margin: 0;
+}
+
+.searchFieldType {
+  margin: 0;
+  font-weight: normal;
+}
+
+.iconContainer {
+  visibility: hidden;
+  left: -8rem;
+  margin: 0;
+  padding: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.searchFieldList {
+  margin: 0.5rem 0;
+  padding: 0;
+}
+
+.moveOptionIcon {
+  visibility: hidden;
+  margin-right: 0.25rem;
+}
+
+.searchFieldOptionItem {
+  background-color: sandybrown;
+  border: 1px solid rgb(135, 136, 75);
+  user-select: none;
+  padding: 0.25rem;
+  margin: 0.1rem 0;
+  border-radius: 5px;
+}
+
+.searchFieldOptionItem:hover .moveOptionIcon {
+  visibility: visible;
+}

@@ -1,0 +1,61 @@
+.filterAdderContainer {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(77, 77, 77, 0.2);
+  top: 0;
+  left: 0;
+  z-index: 1002;
+  align-items: center;
+  justify-content: center;
+}
+
+.filterAdderBox {
+  background: white;
+  padding: 3rem;
+  border-radius: 8px;
+}
+
+.filterContainer {
+  display: flex;
+  align-items: center;
+}
+
+.filterBlock {
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  cursor: default;
+  user-select: none;
+  flex: 1;
+}
+
+.filterBlock h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.filterTable {
+  border-spacing: 0;
+}
+
+.filterTable tr {
+  vertical-align: top;
+}
+
+.filterTable td,
+.filterTable th {
+  padding: 0.5rem 0.25rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.deleteIcon {
+  margin: 0 0.5rem;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.deleteIcon:hover {
+  transform: scale(1.1);
+}

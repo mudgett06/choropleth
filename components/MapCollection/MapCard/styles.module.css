@@ -1,0 +1,79 @@
+.mapCard,
+.ownedMapCard {
+  position: relative;
+  width: 275px;
+  height: 320px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: auto 1rem;
+  display: inline-block;
+  cursor: pointer;
+  box-shadow: 4px -1px 10px -3px rgba(0, 0, 0, 0.44);
+}
+
+.title {
+  font-size: 1.4rem;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.tagContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.tag {
+  cursor: default;
+  user-select: none;
+  display: inline-block;
+  margin: 0.5rem 0.2rem;
+  padding: 0.25rem 0.5rem;
+  background: gainsboro;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 0.75);
+  font-size: 0.8rem;
+}
+
+.imgContainer {
+  position: relative;
+}
+
+.thumbnail {
+  opacity: 1;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.imgOverlay {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+.ownedMapCard:hover .thumbnail {
+  opacity: 0.3;
+}
+
+.ownedMapCard:hover .imgOverlay {
+  opacity: 1;
+}
+
+.editCog {
+  color: gray;
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.editCog:hover {
+  transform: scale(1.1);
+}

@@ -1,0 +1,53 @@
+.outerContainer {
+  position: absolute;
+  top: 80px;
+  left: 12px;
+  z-index: 1003;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.innerContainer {
+  margin: 5px 0;
+  padding: 0.25rem;
+  background: white;
+  border-radius: 4px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  min-width: 30px;
+  transition: 0.5s ease;
+  overflow: hidden;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.icon {
+  font-size: 22px;
+  color: black;
+  text-align: center;
+}
+
+.tagContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.tag {
+  cursor: default;
+  user-select: none;
+  display: inline-block;
+  margin: 0.5rem 0.2rem;
+  padding: 0.25rem 0.5rem;
+  background: gainsboro;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 0.75);
+  font-size: 0.8rem;
+}
+
+.tagsTitle {
+  font-weight: bold;
+}

@@ -1,0 +1,50 @@
+.container {
+  max-width: 100%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gainsboro;
+  box-shadow: -4px 7px 25px -15px rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  padding: 0.75rem;
+  align-items: flex-start;
+  margin: 0.5rem;
+  justify-content: flex-start;
+}
+
+.overlayContainer {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(77, 77, 77, 0.2);
+  top: 0;
+  left: 0;
+  z-index: 1002;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlayBox select {
+  font-size: 1.4rem;
+}
+.overlayBox p {
+  font-size: 1.4rem;
+}
+.overlayBox button {
+  margin-left: 0.25rem;
+}
+
+.overlayBox {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid gainsboro;
+  box-shadow: -4px 7px 25px -15px rgba(0, 0, 0, 0.75);
+}
+
+.inputLabel {
+  margin-right: 0.4rem;
+}
+.infoSection {
+  margin: 0.5rem 0;
+}

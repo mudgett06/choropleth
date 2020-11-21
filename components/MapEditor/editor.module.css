@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.pageTitle {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.outerPageContainer {
+  width: 100%;
+  border: 1px solid gainsboro;
+  box-shadow: -4px 7px 25px -15px rgba(0, 0, 0, 0.75);
+  padding: 0.75rem;
+  border-radius: 5px;
+  margin: 0.5rem;
+}
+
+.innerPageContainer {
+  max-height: calc(100vh - 16rem);
+  width: 100%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.column {
+  width: 50%;
+  margin: 1rem;
+}
+
+.headingContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  align-items: flex-end;
+}
+
+.mapTitle {
+  display: inline;
+  font-size: 1.5rem;
+}
+
+.left,
+.saveState {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.saveState {
+  text-align: right;
+  font-weight: lighter;
+  color: gray;
+  font-style: italic;
+}
+
+.icon {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}

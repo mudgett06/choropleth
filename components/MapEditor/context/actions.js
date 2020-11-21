@@ -1,0 +1,13 @@
+export const SET_MAP = "SET_MAP";
+export const SET_STATE = "SET_STATE";
+export const UPDATE_STYLE = "UPDATE_STYLE";
+export const SEARCH = "SEARCH";
+export const ADD = "ADD";
+export const REORDER = "REORDER";
+export const UPDATE = "UPDATE";
+export const REMOVE = "REMOVE";
+export const UPDATE_MAP = "UPDATE_MAP";
+export const SET_EDITOR_PAGE = "SET_EDITOR_PAGE";
+export const SET_MAP_VIEW = "SET_MAP_VIEW";
+export const SAVE_MAP = "SAVE_MAP";
+export const SET_SCREENSHOTTING = "SET_SCREENSHOTTING";

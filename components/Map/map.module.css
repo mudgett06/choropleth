@@ -1,0 +1,141 @@
+/**Main map styles**/
+.mapContainer {
+  width: 100%;
+  height: 90%;
+  margin: 0.25rem auto 0;
+  position: relative;
+}
+
+.loadingOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgb(12, 12, 12, 0.8);
+  display: flex;
+  align-items: content;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  text-shadow: 2px 2px black;
+  z-index: 1003;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+}
+
+.map .leaflet-bottom {
+  color: pink;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 1001;
+}
+
+.overlay h1 {
+  font-size: 1.2rem;
+  margin: 0.25rem;
+}
+
+.overlay h2 {
+  font-size: medium;
+  margin: 0.25rem 0;
+}
+.overlay ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+.overlay label {
+  display: inline;
+  margin: 0;
+}
+
+.overlay li {
+  width: auto;
+  margin: 0.1rem 0;
+  display: block;
+  white-space: nowrap;
+}
+
+.nameBlock,
+.overlay fieldset {
+  background: darkgray;
+  padding: 0.25rem;
+  border: 1px solid black;
+  margin: 0.5rem 0;
+}
+
+.nameBlock {
+  cursor: pointer;
+}
+
+.nameBlock p {
+  margin: 0;
+}
+
+.dataPair {
+  margin: 0.6rem 0;
+}
+
+.activeNameBlock {
+  border: 2px solid blue;
+}
+
+.toggleFilterIcon {
+  margin-left: 0.5rem;
+  font-weight: lighter;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.dataBox {
+  bottom: 0;
+  left: 0;
+  max-width: calc(100% - 312px);
+  height: 33%;
+  background: gainsboro;
+  border-radius: 5px 5px 5px 0px;
+  box-shadow: 14px -12px 24px -18px rgba(0, 0, 0, 0.75);
+  padding: 0.25rem 0.5rem;
+  overflow: hidden;
+}
+
+.dataBoxTable {
+  height: calc(100% - 2rem);
+  max-height: calc(100% - 2rem);
+  overflow-y: scroll;
+}
+
+.dataBoxTable table {
+  height: 100%;
+  white-space: normal;
+  border-collapse: collapse;
+}
+
+.dataBoxTable td {
+  padding: 0.25rem;
+}
+
+.dataBoxTable tr:nth-child(2n + 1) {
+  background-color: darkgray;
+}
+
+.dataBoxLabel {
+  font-weight: bold;
+  padding: 0.25rem;
+}
+
+.dataBoxLabel,
+.dataBoxData {
+  text-align: left;
+}

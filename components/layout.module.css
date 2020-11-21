@@ -1,0 +1,75 @@
+.container {
+  padding: 0 1rem;
+  margin: 3rem auto 0 auto;
+  overflow: hidden;
+  height: calc(100vh - 3rem);
+}
+
+.topLevelNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.topLevelNav li {
+  position: relative;
+  margin: 0 2rem;
+  height: 100%;
+  padding: 0;
+}
+
+.userDiv {
+  height: 3rem;
+}
+
+.profilePicture {
+  background: gray;
+  height: 3rem;
+  width: 3rem;
+  transform: translateY(-1.25rem);
+}
+
+.topLevelNav a {
+  padding: 0.25rem;
+  text-align: center;
+  position: relative;
+  font-size: large;
+}
+
+.topLevelNav a:hover {
+  padding-bottom: calc(0.25rem - 1px);
+  border-bottom: 1px solid black;
+}
+
+.topLevelNav li:hover .dropdownNav {
+  display: flex;
+}
+
+.dropdownNav {
+  text-align: center;
+  padding: 0.25rem;
+  display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: -1rem;
+  flex-direction: column;
+  align-content: flex-start;
+  align-items: flex-start;
+  z-index: 1001;
+  background: white;
+  box-shadow: 9px 9px 15px -12px rgba(0, 0, 0, 0.75);
+}
+
+.dropdownNav a {
+  font-size: medium;
+  display: block;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.dropdownNav li {
+  margin: 0 1rem;
+}

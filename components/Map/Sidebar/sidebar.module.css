@@ -1,0 +1,87 @@
+.sidebarContainer {
+  right: 20px;
+  width: 25%;
+  top: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -6px 9px 36px -15px rgba(0, 0, 0, 0.75);
+}
+
+.sidebarIconsWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.sidebarTab {
+  background: #ebebeb;
+  border: 1px solid darkgrey;
+  flex: 1;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+}
+
+.sidebarTab [class*="fa"] {
+  height: 2rem;
+  padding: 0.25rem;
+  color: #6d6d6d;
+  font-size: 1.6rem;
+}
+
+.activeSidebarTab {
+  background: gainsboro;
+  opacity: 0.9;
+  border-bottom: 1px solid gainsboro;
+}
+
+.activeSidebarTab [class*="fa"] {
+  color: black;
+}
+
+.sidebarOuterContentContainer {
+  overflow: scroll;
+  max-height: calc(100% - 9rem);
+  padding: 0.5rem;
+  background: gainsboro;
+  width: 100%;
+  opacity: 0.9;
+  border: 1px solid darkgrey;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+}
+
+.sidebarContentInner {
+  overflow: scroll;
+}
+
+.sidebarContentInner form {
+  padding: 0;
+}
+
+.nameBlock {
+  background: gray;
+  margin: 0.25rem 0;
+  padding: 0.25rem;
+}
+
+.nameBlock h2 {
+  margin: 0.25rem 0;
+  padding: 0;
+}
+
+.nameBlock h2 {
+  font-size: 1.2rem;
+}
+
+.nameBlock h3 {
+  font-size: 1rem;
+  margin: 0.1rem 0;
+}
+
+.nameBlock p {
+  font-size: 1rem;
+  margin: 0.1rem 0;
+}

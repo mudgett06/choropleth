@@ -1,0 +1,12 @@
+State,County,num,bool,Category
+PA,Philadelphia,52350,Yes,"Orange,Green"
+NJ,Burlington,12503,Yes,"Green,Pink"
+DE,New Castle,,Yes,"Pink,Blue"
+PA,Chester,22000,Yes,"Pink, Orange"
+PA,Bucks,15797,No,"Orange,Green"
+PA,Delaware,57306,,"Green,Pink"
+DE,Sussex,37583,,"Pink,Blue"
+NJ,Ocean,17452,No,
+NJ,Camden,58632,Yes,
+OR,Wheeler,58632,No,"Pink,Blue"
+PA,Montgomery,15797,,"Green,Pink"

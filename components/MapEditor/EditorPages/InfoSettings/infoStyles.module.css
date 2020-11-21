@@ -1,0 +1,66 @@
+.mapDescription {
+  margin: 0.25rem 0;
+  height: 25vh;
+}
+
+.tagContainer {
+  display: flex;
+}
+
+.tag {
+  cursor: default;
+  user-select: none;
+  display: inline-block;
+  margin: 0.5rem 0.2rem;
+  padding: 0.25rem 0.5rem;
+  background: gainsboro;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.deleteIcon {
+  margin-right: 0.25rem;
+  color: darkgray;
+  cursor: pointer;
+}
+
+.deleteIcon:hover {
+  color: rgb(63, 63, 63);
+}
+
+.mapDescription {
+  margin: 0.25rem 0;
+  height: 25vh;
+}
+
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  cursor: default;
+  user-select: none;
+  display: inline-block;
+  margin: 0.5rem 0.2rem;
+  padding: 0.25rem 0.5rem;
+  background: gainsboro;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.popup {
+  background: gray;
+  padding: 0.25rem 0.5rem;
+  border-radius: 5px;
+  margin-left: 0.3rem;
+}
+
+.showingPopup {
+  opacity: 1;
+}
+
+.invisiblePopup {
+  opacity: 0;
+  transition: opacity 1s;
+}

@@ -1,0 +1,14 @@
+State,County,Wifi,Amenities,Income,Column5,Column6,Column7,Column8,Column9,Column10,Column11,Column12,Column13,Column14,Column15
+PA,Philadelphia,Yes,"Restaurants, Farms",76000,a,a,a,a,a,a,a,a,a,a,a
+PA,Chester,Yes,"Farms, Forests","55,000",b,b,b,b,b,b,b,b,b,b,b
+PA,Delaware,No,"Forests, Restaurants","80,000",c,c,c,c,c,c,c,c,c,c,c
+PA,Bucks,Yes,"Restaurants, Farms, Forests","20,000",a,a,a,a,a,a,a,a,a,a,a
+PA,Montgomery,Yes,Forests,"40,000",b,b,b,b,b,b,b,b,b,b,b
+NJ,Gloucester,No,"Farms, Restaurants","60,000",c,c,c,c,c,c,c,c,c,c,c
+NJ,Ocean,Yes,Farms,"80,000",a,a,a,a,a,a,a,a,a,a,a
+NJ,Burlington,Yes,"Forests, Farms","100,000",b,b,b,b,b,b,b,b,b,b,b
+NJ,Camden,No,"Forests, Restaurants, Farms","65,000",c,c,c,c,c,c,c,c,c,c,c
+NJ,Salem,Yes,"Restaurants, Farms","42,000",a,a,a,a,a,a,a,a,a,a,a
+DE,New Castle,Yes,"Restaurants, Forests","81,000",b,b,b,b,b,b,b,b,b,b,b
+DE,Kent,No,Restaurants,"55,000",c,c,c,c,c,c,c,c,c,c,c
+DE,Sussex,Yes,"Forests, Farms, Restaurants","23,000",a,a,a,a,a,a,a,a,a,a,a

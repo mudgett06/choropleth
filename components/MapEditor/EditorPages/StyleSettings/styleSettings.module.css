@@ -1,0 +1,146 @@
+.modeSelector {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+}
+
+.rampSelector {
+  margin: 0.5rem 0;
+  display: flex;
+  width: 80%;
+  max-height: 10rem;
+  overflow: scroll;
+  flex-wrap: wrap;
+}
+
+.section {
+  margin: 0.25rem 0;
+}
+
+.sectionTitle {
+  margin: 0.5rem 0;
+  color: rgb(94, 94, 94);
+}
+
+.column {
+  width: 50%;
+  min-height: 100%;
+  overflow: scroll;
+}
+
+.colorBlock {
+  height: 2rem;
+  width: 2rem;
+  margin: 0.5rem;
+}
+.choroplethBlock {
+  display: flex;
+  padding: 0.5rem;
+  background: salmon;
+  border-radius: 5px;
+}
+
+.sectio .choroplethBlockName {
+  cursor: pointer;
+  user-select: none;
+  color: rgb(94, 94, 94);
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0.25rem;
+  padding: 0.25rem;
+}
+
+.editBlock {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 0.25rem;
+}
+.active {
+  border: 2px solid black;
+  box-shadow: 10px 10px 5px -9px rgba(0, 0, 0, 0.75);
+}
+
+.iconContainer {
+  visibility: hidden;
+}
+
+.choroplethBlock:hover .iconContainer,
+.iconContainer:hover {
+  visibility: visible;
+}
+
+.addBlock {
+  padding: 0.5rem;
+  border: 1px solid black;
+  box-shadow: 10px 10px 5px -9px rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+}
+
+.swatchContainer {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent;
+  padding: 0.25rem;
+  margin: 0 0.25rem;
+}
+
+.swatchContainer:hover {
+  border: 1px solid gainsboro;
+}
+
+.swatchBlock {
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+}
+
+.editModeSelection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.editModeTitle {
+  margin: 1rem;
+  color: rgb(192, 192, 192);
+  padding: 0 0.2rem;
+  cursor: pointer;
+}
+
+.activeEditModeTitle {
+  border-bottom: 1px solid gray;
+  color: gray;
+  font-weight: bold;
+}
+
+.editBlockContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.editBlock h2,
+.editBlock input {
+  margin: 0 0.5rem;
+}
+
+.colorPicker {
+  border-radius: 5px;
+  width: auto;
+}
+
+.swatchPicker {
+  border-radius: 5px;
+  border-left: none;
+  width: auto;
+}
+
+.activeSwatch,
+.activeSwatch:hover {
+  border: 1px solid black;
+  box-shadow: 4px 4px 1px -3px rgba(0, 0, 0, 0.75);
+}
