@@ -27,7 +27,7 @@ Choropleth.net currently has the ability to parse any standard-delimited text fi
 
 \* If mapping counties or cities formatted as names, a column including the containing state must also be included.
 
-** If mapping census tracts formatted as names, a column including the containing state AND county must also be included.
+** If mapping census tracts formatted as names, a column including the containing state *and* county must also be included.
 
 ### Example of a .csv containing county data:
 State,    County,   Pop. Density (Pop./mi2)  
