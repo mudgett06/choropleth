@@ -6,19 +6,13 @@ import {
   faExpand,
   faCompress,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Link from "next/link";
+import MapContext from "../context";
 
-export default function InfoButton({
-  mapFullscreen,
-  setMapFullscreen,
-  editor,
-  description,
-  tags,
-  owner,
-  _id,
-}) {
+export default function SideButtons({ mapFullscreen, setMapFullscreen }) {
   const [showingInfo, setShowingInfo] = useState(false);
+  const { _id, description, tags, editor, owner } = useContext(MapContext);
   return (
     <div className={styles.outerContainer}>
       {description || (tags && tags.length > 0) ? (
@@ -67,7 +61,7 @@ export default function InfoButton({
           />
         </div>
       ) : owner ? (
-        <Link href={`/maps/${_id}/create`}>
+        <Link href={`/maps/${_id}/edit`}>
           <div className={styles.innerContainer}>
             <FontAwesomeIcon icon={faPencilAlt} className={styles.icon} />
           </div>

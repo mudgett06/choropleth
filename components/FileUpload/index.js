@@ -55,7 +55,7 @@ export default function Dropzone() {
           <input {...getInputProps()} />
           <>
             <h2>Drop a file or click to upload a new map</h2>
-            <p>{"Accepted formats: .xlsx, .csv, .json, .shp"}</p>
+            <p>{"Accepted formats: .xlsx, .csv"}</p>
           </>
         </>
       )}

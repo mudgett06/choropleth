@@ -9,12 +9,13 @@ import EditorContext from "../../MapEditor/context";
 
 const MapContext = createContext();
 
-export const MapProvider = ({ map, embed, editor, children }) => {
+export const MapProvider = ({ map, embed, editor, children, owner }) => {
   const [state, dispatch] = useReducer(reducer, {
     activeFilters: getDefaultFilters(map.filters) || null,
     activeChoropleth: map.choropleths ? map.choropleths[0] : null,
     activeData: null,
     leafletMap: null,
+    mapSize:null
   });
 
   const {
@@ -27,6 +28,9 @@ export const MapProvider = ({ map, embed, editor, children }) => {
     geojson,
     bounds,
     tileLayer,
+    tags,
+    description,
+    _id
   } = map;
   /*const geojson = map.topojson
     ? topojson.feature(map.topojson, map.topojson?.objects.featureCollection)
@@ -204,6 +208,7 @@ export const MapProvider = ({ map, embed, editor, children }) => {
       value={{
         embed,
         editor,
+        owner,
         map,
         state,
         dispatch,
@@ -226,7 +231,9 @@ export const MapProvider = ({ map, embed, editor, children }) => {
         takingScreenshot,
         setTakingScreenshot,
         setEditorChoropleth,
-
+        tags,
+        description,
+        _id,
         mapFullscreen,
         setMapFullscreen,
       }}

@@ -1,9 +1,28 @@
+import { useRouter } from "next/router";
 import Layout from "../components/Layout.js";
+import { useUser } from "../lib/hooks.js";
+import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Home() {
+  const [user, { mutate }] = useUser();
+  const router = useRouter();
+  useEffect(() => {
+    if (user?.username) {
+      router.push(`/users/${user.username}/maps`);
+    }
+  }, []);
+
   return (
     <Layout>
-      <h1>Hello World</h1>
+      <h1>Welcome to Choropleth.net!</h1>
+      <p>
+        Sign in to get started making maps. Check out the{" "}
+        <Link href="/instructions">
+          <a>instructions</a>
+        </Link>{" "}
+        for an overview of the map-editing process.
+      </p>
     </Layout>
   );
 }

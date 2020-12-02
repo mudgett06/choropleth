@@ -24,11 +24,11 @@ export default function Layout({ children }) {
               <a>Choropleth.net</a>
             </Link>
           </li>
-          {/*<li key="instructions">
+          <li key="instructions">
             <Link href="/instructions">
               <a>Instructions</a>
             </Link>
-          </li>*/}
+          </li>
           {user ? (
             <>
               <li key="myMaps">

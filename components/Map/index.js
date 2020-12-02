@@ -7,7 +7,7 @@ import DataDisplayBox from "./DataDisplayBox";
 import Sidebar from "./Sidebar";
 import { styleClosure } from "../../lib/map/style";
 import MapContext, { MapProvider } from "./context";
-import SideButtons from "./sideButtons";
+import SideButtons from "./SideButtons";
 import domtoimage from "dom-to-image";
 import { useUser } from "../../lib/hooks";
 if (process.browser) {
@@ -19,16 +19,16 @@ import { DotLoader } from "react-spinners";
 import { css } from "@emotion/core";
 
 export default function Map({ map, embed, editor }) {
+  const [user, { mutate }] = useUser();
+  const owner = user?.username === map.owner;
   return (
-    <MapProvider map={map} embed={embed} editor={editor}>
+    <MapProvider map={map} embed={embed} editor={editor} owner={owner}>
       <MapConsumer editor={editor} embed={embed} />
     </MapProvider>
   );
 }
 
 function MapConsumer({ editor, embed }) {
-  const [mapHeight, setMapHeight] = useState(null);
-
   const mapRef = useRef();
   const {
     activeData,
@@ -53,7 +53,6 @@ function MapConsumer({ editor, embed }) {
       setFeaturesLoading(false);
     }
   }, [geojson]);
-  const [user, { mutate }] = useUser();
   useEffect(() => {
     if ((editor && !map.thumbnail && tilesLoaded) || takingScreenshot) {
       domtoimage.toPng(mapRef.current).then((thumbnail) => {
@@ -79,7 +78,7 @@ function MapConsumer({ editor, embed }) {
           [bbox[1], bbox[0]],
           [bbox[3], bbox[2]],
         ];
-        maxBounds = L.latLngBounds(bounds).pad(0.25);
+        maxBounds = L.latLngBounds(bounds).pad(0.5);
         tempLeafletMap.setMaxBounds(maxBounds);
         tempLeafletMap.fitBounds(maxBounds);
         tempLeafletMap.setMinZoom(tempLeafletMap.getBoundsZoom(maxBounds));
@@ -117,16 +116,23 @@ function MapConsumer({ editor, embed }) {
           }
         ).addTo(tempLeafletMap);
       }
+      /*
+      Remove outlines when zoomed out sufficiently far
       tempLeafletMap.on("zoomend", () => {
         if (tempLeafletMap.getZoom() < 6) {
           geojsonLayer.eachLayer((layer) => layer.setStyle({ opacity: 0 }));
         } else {
           geojsonLayer.eachLayer((layer) => layer.setStyle({ opacity: 1 }));
         }
+      });*/
+      setState({
+        leafletMap: tempLeafletMap,
+        mapSize: {
+          height: mapRef.current.offsetHeight,
+          width: mapRef.current.offsetWidth,
+        },
       });
-      setState({ leafletMap: tempLeafletMap });
     }
-    setMapHeight(mapRef.current.offsetHeight);
   }, [geojson]);
 
   const override = css`
@@ -164,13 +170,8 @@ function MapConsumer({ editor, embed }) {
         ) : (
           <></>
         )}
-        {map.tags || map.description ? (
+        {editor || map.tags || map.description ? (
           <SideButtons
-            owner={user?.username === map.owner}
-            _id={map._id}
-            description={map.description}
-            tags={map.tags}
-            editor={editor}
             mapFullscreen={mapFullscreen}
             setMapFullscreen={setMapFullscreen}
           />
@@ -178,7 +179,7 @@ function MapConsumer({ editor, embed }) {
           <></>
         )}
         {activeChoropleth ? <ChoroplethBar /> : <></>}
-        <Sidebar mapHeight={mapHeight} />
+        <Sidebar />
         {activeData ? <DataDisplayBox /> : <></>}
         <div id="map" className={styles.map} />
       </div>

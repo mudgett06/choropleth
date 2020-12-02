@@ -38,7 +38,7 @@ export default function MapCard({
               className={styles.imgOverlay}
               onClick={(e) => e.stopPropagation()}
             >
-              <Link href={`/maps/${map._id}/create`}>
+              <Link href={`/maps/${map._id}/edit`}>
                 <a
                   className={styles.editCog}
                   onClick={(e) => e.stopPropagation()}

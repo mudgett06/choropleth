@@ -1,0 +1,23 @@
+.container {
+  width: 75%;
+  max-height: 90vh;
+  border: 1px solid gainsboro;
+  box-shadow: -4px 7px 25px -15px rgba(0, 0, 0, 0.75);
+  padding: 0.75rem;
+  border-radius: 5px;
+  margin: 0.5rem auto;
+  overflow: scroll;
+}
+.outerUl {
+  list-style: disc;
+  margin: 0 0.75rem;
+}
+
+.outerLi {
+  margin: 0.5rem 0;
+}
+.innerUl {
+  list-style: circle;
+  font-size: 0.9rem;
+  margin: 0 1.25rem;
+}

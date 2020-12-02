@@ -1,4 +1,4 @@
-import { useState, useRef, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFilter,
@@ -14,46 +14,35 @@ import MapContext from "../context";
 
 import { remToPx } from "../../../lib/utility";
 
-const Sidebar = ({ mapHeight }) => {
+const Sidebar = () => {
   const [sidebarView, setSidebarView] = useState(null);
-  const [maxHeight, setMaxHeight] = useState(null);
-  useEffect(() => {
-    setMaxHeight(mapHeight - remToPx(8.5));
-  }, [mapHeight]);
-  const container = useRef();
-  const { searchFields, filters, choropleths } = useContext(MapContext);
+  const { searchFields, filters, choropleths, mapSize } = useContext(
+    MapContext
+  );
 
-  const getViewProps = (viewName) => {
-    switch (viewName) {
-      case "Filter":
-        return {
-          icon: faFilter,
-          display: filters?.length,
-          component: <FilterView />,
-        };
-      case "Color":
-        return {
-          icon: faFillDrip,
-          display: choropleths?.length,
-          component: <ChoroplethView />,
-        };
-      case "Search":
-        return {
-          icon: faSearch,
-          display: searchFields?.length,
-          component: <SearchView />,
-        };
-    }
+  const viewProps = {
+    filter: {
+      icon: faFilter,
+      display: filters?.length,
+      component: <FilterView />,
+    },
+    color: {
+      icon: faFillDrip,
+      display: choropleths?.length,
+      component: <ChoroplethView />,
+    },
+    search: {
+      icon: faSearch,
+      display: searchFields?.length,
+      component: <SearchView />,
+    },
   };
 
   return (
-    <div
-      className={`${styles.sidebarContainer} ${mapStyles.overlay}`}
-      ref={container}
-    >
+    <div className={`${styles.sidebarContainer} ${mapStyles.overlay}`}>
       <div className={styles.sidebarIconsWrapper}>
-        {["Filter", "Color", "Search"]
-          .filter((view) => getViewProps(view).display)
+        {["filter", "color", "search"]
+          .filter((view) => viewProps[view].display)
           .map((viewName) => (
             <button
               style={sidebarView ? {} : { borderRadius: "5px" }}
@@ -67,7 +56,7 @@ const Sidebar = ({ mapHeight }) => {
               }
               onMouseDown={(e) => e.preventDefault()}
             >
-              <FontAwesomeIcon icon={getViewProps(viewName).icon} />
+              <FontAwesomeIcon icon={viewProps[viewName].icon} />
             </button>
           ))}
       </div>
@@ -93,7 +82,10 @@ const Sidebar = ({ mapHeight }) => {
         )}
         <div
           className={`${styles.sidebarContentInner}`}
-          style={{ maxHeight, overflow: "scroll" }}
+          style={{
+            maxHeight: `${(mapSize?.height || 800) - remToPx(8.5)}px`,
+            overflow: "scroll",
+          }}
         >
           {getViewProps(sidebarView)?.component}
         </div>
