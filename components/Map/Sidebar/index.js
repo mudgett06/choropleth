@@ -83,11 +83,13 @@ const Sidebar = () => {
         <div
           className={`${styles.sidebarContentInner}`}
           style={{
-            maxHeight: `${(mapSize?.height || 800) - remToPx(8.5)}px`,
+            maxHeight: `${
+              (mapSize?.height || 800) - process.window ? remToPx(8.5) : 136
+            }px`,
             overflow: "scroll",
           }}
         >
-          {getViewProps(sidebarView)?.component}
+          {viewProps[sidebarView]?.component}
         </div>
       </div>
     </div>

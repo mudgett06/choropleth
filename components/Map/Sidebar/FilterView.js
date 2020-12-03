@@ -2,10 +2,7 @@ import { useState, useRef, createRef, useContext, useEffect } from "react";
 import { parseNum } from "../../../lib/math";
 import { formatRanges, spliceOutCopy } from "../../../lib/utility";
 import { getDefaultFilters } from "../../../lib/map/filter";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilter, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import utilStyles from "../../../styles/utils.module.css";
-import styles from "./sidebar.module.css";
 import MapContext from "../context";
 
 const FilterView = () => {
@@ -103,7 +100,9 @@ const FilterView = () => {
                       updateFilter(filter.name, opt);
                       if (
                         ["range", "date"].indexOf(filter.type) > -1 &&
-                        e.target.checked
+                        e.target.checked &&
+                        rangeInputMin.current[idx].current &&
+                        rangeInputMax.current[idx].current
                       ) {
                         rangeInputMin.current[idx].current.value = "";
                         rangeInputMax.current[idx].current.value = "";
