@@ -9,7 +9,7 @@ export default function instructions() {
         <p>
           Choropleth.net is a simple web app designed for quick visualization of
           geographic data on an interactive{" "}
-          <a href="https://leafletjs.com/">Leaflet.js</a> map. Check out the <a href="https://github.com/mudgett06/choropleth">Github Repository</a>.
+          <a href="https://leafletjs.com/">Leaflet.js</a> map. Check out the <a href="https://github.com/mudgett06/choropleth">Github Repository</a> to see the source code and download test files to play with.
         </p>
         <h2 id="getting-started">Getting Started</h2>
         <p>
