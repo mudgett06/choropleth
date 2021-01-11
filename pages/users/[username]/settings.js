@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import Layout from "../../../components/Layout";
-import Message from "../../../components/Message";
 import styles from "../../../styles/Settings.module.css";
 import { useUser } from "../../../lib/hooks";
 import { checkCredential, login } from "../../../lib/api/auth";
