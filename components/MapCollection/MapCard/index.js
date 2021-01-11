@@ -8,20 +8,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 
-export default function MapCard({
-  map,
-  owner,
-  deleteDialog,
-  showingDeleteDialog,
-}) {
+export default function MapCard({ map, owner, deleteDialog }) {
   return (
     <Link href={`/maps/${map._id}`}>
-      <div
-        className={owner ? styles.ownedMapCard : styles.mapCard}
-        style={
-          showingDeleteDialog ? { opacity: "0.3", pointerEvents: "none" } : {}
-        }
-      >
+      <div className={owner ? styles.ownedMapCard : styles.mapCard}>
         <h1 className={styles.title}>{map.name}</h1>
         <div
           className={styles.imgContainer}
@@ -33,7 +23,7 @@ export default function MapCard({
             height="160"
             width="250"
           ></img>
-          {owner && !showingDeleteDialog ? (
+          {owner ? (
             <div
               className={styles.imgOverlay}
               onClick={(e) => e.stopPropagation()}

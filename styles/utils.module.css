@@ -1,21 +1,3 @@
-.fillFull {
-  height: 100%;
-  width: 100%;
-  padding: 0.5rem;
-}
-
-.relative {
-  position: relative;
-}
-
-.verticalSpace {
-  margin: 0.5rem 0;
-}
-
 .highlight {
-  background: yellow;
-}
-
-.circle {
-  border-radius: 100%;
+  @apply bg-gray-400 shadow-sm p-2 text-white;
 }

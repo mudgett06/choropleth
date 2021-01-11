@@ -32,12 +32,16 @@ export default function MapPage({ mapShell }) {
         <title>{map.name}</title>
       </Head>
       <h1 style={{ margin: "0.25rem 0" }}>{map.name}</h1>
-      <h2 style={{ margin: "0.25rem 0", fontWeight: "normal" }}>
-        By{" "}
-        <Link href={`/users/${map.owner}/maps`}>
-          <a>{map.owner}</a>
-        </Link>
-      </h2>
+      {map.owner ? (
+        <h2 style={{ margin: "0.25rem 0", fontWeight: "normal" }}>
+          By{" "}
+          <Link href={`/users/${map.owner}/maps`}>
+            <a>{map.owner}</a>
+          </Link>
+        </h2>
+      ) : (
+        <></>
+      )}
       <Map map={map} />
     </Layout>
   );

@@ -14,8 +14,9 @@ export const MapProvider = ({ map, embed, editor, children, owner }) => {
     activeFilters: getDefaultFilters(map.filters) || null,
     activeChoropleth: map.choropleths ? map.choropleths[0] : null,
     activeData: null,
+    sidebarView: null,
     leafletMap: null,
-    mapSize:null
+    mapSize: null,
   });
 
   const {
@@ -30,13 +31,19 @@ export const MapProvider = ({ map, embed, editor, children, owner }) => {
     tileLayer,
     tags,
     description,
-    _id
+    _id,
   } = map;
   /*const geojson = map.topojson
     ? topojson.feature(map.topojson, map.topojson?.objects.featureCollection)
     : null;*/
 
-  const { leafletMap, activeFilters, activeChoropleth, activeData } = state;
+  const {
+    leafletMap,
+    activeFilters,
+    activeChoropleth,
+    activeData,
+    sidebarView,
+  } = state;
 
   const leafletMapLayers = Object.values(leafletMap?._layers || {}).filter(
     (layer) => layer.feature
@@ -128,6 +135,7 @@ export const MapProvider = ({ map, embed, editor, children, owner }) => {
 
   const setState = (update) => dispatch({ type: SET_STATE, payload: update });
   const setActiveData = (activeData) => setState({ activeData });
+  const setSidebarView = (sidebarView) => setState({ sidebarView });
 
   const refreshMap = (action) => {
     const tempLeafletMap = leafletMap.eachLayer((layer) => {
@@ -226,6 +234,8 @@ export const MapProvider = ({ map, embed, editor, children, owner }) => {
         leafletMapLayers,
         activeData,
         refreshMap,
+        sidebarView,
+        setSidebarView,
         setActiveData,
         updateMap,
         takingScreenshot,

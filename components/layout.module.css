@@ -1,8 +1,5 @@
 .container {
-  padding: 0 1rem;
-  margin: 3rem auto 0 auto;
-  overflow: hidden;
-  height: calc(100vh - 3rem);
+  @appy flex;
 }
 
 .topLevelNav {

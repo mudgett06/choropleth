@@ -8,10 +8,12 @@ import { config, dom } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
 export default function Layout({ children }) {
+  const navLink =
+    "hover:no-underline hover:border-gray-800 hover:border text-gray-800";
   const router = useRouter();
   const [user, { mutate }] = useUser();
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Choropleth.net</title>
         <link rel="icon" href="/favicon.ico" />
@@ -21,24 +23,25 @@ export default function Layout({ children }) {
         <ul className={styles.topLevelNav}>
           <li key="home">
             <Link href="/">
-              <a>Choropleth.net</a>
+              <a className={navLink}>Choropleth.net</a>
             </Link>
           </li>
           <li key="instructions">
             <Link href="/instructions">
-              <a>Instructions</a>
+              <a className={navLink}>Instructions</a>
             </Link>
           </li>
           {user ? (
             <>
               <li key="myMaps">
                 <Link href={`/users/${user.username}/maps`}>
-                  <a>My Maps</a>
+                  <a className={navLink}>My Maps</a>
                 </Link>
               </li>
               <li key="logout">
                 <Link href={"/"}>
                   <a
+                    className={navLink}
                     onClick={() => {
                       logout(mutate).then(() => router.push("/"));
                     }}
@@ -49,21 +52,28 @@ export default function Layout({ children }) {
               </li>
               <li key="userSettings">
                 <Link href={`/users/${user.username}/settings`}>
-                  <a>Settings</a>
+                  <a className={navLink}>Settings</a>
                 </Link>
               </li>
             </>
           ) : (
-            <Link href="/login">
-              <a>Login/Register</a>
-            </Link>
+            <>
+              <li key="Create">
+                <Link href="/maps/create">
+                  <a className={navLink}>Create</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/login">
+                  <a className={navLink}>Login/Register</a>
+                </Link>
+              </li>
+            </>
           )}
         </ul>
       </nav>
-
-      {children}
-
+      <div className={styles.container}>{children}</div>
       <footer className={styles.footer}></footer>
-    </div>
+    </>
   );
 }

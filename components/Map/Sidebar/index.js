@@ -13,12 +13,17 @@ import mapStyles from "../map.module.css";
 import MapContext from "../context";
 
 import { remToPx } from "../../../lib/utility";
+import DataDisplayBox from "../DataDisplayBox";
 
 const Sidebar = () => {
   const [sidebarView, setSidebarView] = useState(null);
-  const { searchFields, filters, choropleths, mapSize } = useContext(
-    MapContext
-  );
+  const {
+    searchFields,
+    filters,
+    choropleths,
+    mapSize,
+    activeData,
+  } = useContext(MapContext);
 
   const viewProps = {
     filter: {
@@ -39,59 +44,43 @@ const Sidebar = () => {
   };
 
   return (
-    <div className={`${styles.sidebarContainer} ${mapStyles.overlay}`}>
-      <div className={styles.sidebarIconsWrapper}>
-        {["filter", "color", "search"]
-          .filter((view) => viewProps[view].display)
-          .map((viewName) => (
-            <button
-              style={sidebarView ? {} : { borderRadius: "5px" }}
-              onClick={() => {
-                setSidebarView(sidebarView === viewName ? null : viewName);
-              }}
-              className={
-                sidebarView === viewName
-                  ? `${styles.sidebarTab} ${styles.activeSidebarTab}`
-                  : styles.sidebarTab
-              }
-              onMouseDown={(e) => e.preventDefault()}
-            >
-              <FontAwesomeIcon icon={viewProps[viewName].icon} />
-            </button>
-          ))}
-      </div>
-      <div
-        className={styles.sidebarOuterContentContainer}
-        style={
-          sidebarView
-            ? {}
-            : {
-                maxHeight: "0px",
-                overflow: "hidden",
-                padding: "0px",
-                borderBottom: "none",
-              }
-        }
-      >
-        {sidebarView ? (
-          <h1>{`${sidebarView} features${
-            sidebarView === "Color" ? " by:" : ":"
-          }`}</h1>
-        ) : (
-          <></>
-        )}
+    <div className="w-1/3 h-full absolute left-0">
+      {activeData ? (
+        <DataDisplayBox />
+      ) : (
         <div
-          className={`${styles.sidebarContentInner}`}
-          style={{
-            maxHeight: `${
-              (mapSize?.height || 800) - process.window ? remToPx(8.5) : 136
-            }px`,
-            overflow: "scroll",
-          }}
+          className={styles.sidebarOuterContentContainer}
+          style={
+            sidebarView
+              ? {}
+              : {
+                  maxHeight: "0px",
+                  overflow: "hidden",
+                  padding: "0px",
+                  borderBottom: "none",
+                }
+          }
         >
-          {viewProps[sidebarView]?.component}
+          {sidebarView ? (
+            <h1>{`${sidebarView} features${
+              sidebarView === "Color" ? " by:" : ":"
+            }`}</h1>
+          ) : (
+            <></>
+          )}
+          <div
+            className={`${styles.sidebarContentInner}`}
+            style={{
+              maxHeight: `${
+                (mapSize?.height || 800) - process.window ? remToPx(8.5) : 136
+              }px`,
+              overflow: "scroll",
+            }}
+          >
+            {viewProps[sidebarView]?.component}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

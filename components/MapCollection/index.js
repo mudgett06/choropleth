@@ -4,6 +4,7 @@ import MapCard from "./MapCard";
 import { deleteMap } from "../../lib/api/maps";
 import DotLoader from "react-spinners/DotLoader";
 import { css } from "@emotion/core";
+import DialogOverlay from "../DialogOverlay";
 
 export default function MapCollection({ maps, owner }) {
   const [showingDeleteDialog, setShowingDeleteDialog] = useState(false);
@@ -30,27 +31,14 @@ export default function MapCollection({ maps, owner }) {
       }}
     >
       {showingDeleteDialog ? (
-        <div
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%,-50%)",
-            padding: "0.5rem",
-            zIndex: 9,
-            background: "gray",
-            boxShadow: "5px 6px 5px -6px rgba(0,0,0,0.75)",
-            opacity: 1,
-          }}
-        >
-          <p
-            style={{ color: "white", textShadow: "1px 1px black" }}
-          >{`Really Delete ${mapToDelete.name}?`}</p>
+        <DialogOverlay>
+          <p>{`Really Delete ${mapToDelete.name}?`}</p>
           {deletingMap ? (
             <DotLoader css={override} size={20} color={"#4A4A4A"} />
           ) : (
-            <>
+            <div>
               <button
+                className={"inline mx-2"}
                 onClick={() => {
                   setDeletingMap(true);
                   deleteMap(mapToDelete._id).then(() => {
@@ -64,12 +52,15 @@ export default function MapCollection({ maps, owner }) {
               >
                 Yes
               </button>
-              <button onClick={() => setShowingDeleteDialog(false)}>
+              <button
+                className={"inline mx-2"}
+                onClick={() => setShowingDeleteDialog(false)}
+              >
                 Cancel
               </button>
-            </>
+            </div>
           )}
-        </div>
+        </DialogOverlay>
       ) : (
         <></>
       )}

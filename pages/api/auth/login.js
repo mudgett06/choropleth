@@ -5,6 +5,8 @@ import passport from "../../../lib/api/passport";
 export default handler.post(
   passport.authenticate("local"),
   async (req, res) => {
-    return res.json({ user: extractUser(req) });
+    return req.user
+      ? res.json(extractUser(req))
+      : res.status(403).send("Incorrect Credentials");
   }
 );

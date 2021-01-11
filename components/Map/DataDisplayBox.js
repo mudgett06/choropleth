@@ -28,7 +28,7 @@ const DataDisplayBox = () => {
   }, {});
 
   return (
-    <div className={`${styles.overlay} ${styles.dataBox}`}>
+    <div className="h-full w-full">
       <h1 className={styles.dataBoxTitle}>{formattedData["identifier"]}</h1>
       <div className={styles.dataBoxTable}>
         <table>

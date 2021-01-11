@@ -40,7 +40,7 @@ handler.patch(async (req, res) => {
       { _id: ObjectId(req.query._id) },
       { projection: { _id: 0, owner: 1 } }
     );
-  if (req.user && req.user.username === owner.owner) {
+  if ((req.user && req.user.username === owner.owner) || !owner.owner) {
     return await req.db
       .collection("maps")
       .updateOne(

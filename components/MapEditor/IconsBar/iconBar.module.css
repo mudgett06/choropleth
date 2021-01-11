@@ -1,36 +1,15 @@
-.container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0.75rem;
-}
-
 .iconButton {
-  cursor: pointer;
-  position: relative;
-  background: white;
-  box-shadow: -1px 3px 8px -10px rgba(0, 0, 0, 0.75);
-  border-radius: 100%;
-  border: 1px solid gainsboro;
-  height: 2.5rem;
-  width: 2.5rem;
-  padding: 0.25rem;
-  margin: 0 0.6rem;
+  @apply m-2 text-black hover:bg-white hover:scale-150 hover:border-gray-800 relative bg-white shadow-sm rounded-full border border-gray-400 w-10 h-10;
 }
 
 .icon {
-  text-align: center;
+  transform: translate(-50%, -50%);
+  @apply absolute;
 }
 
-.active {
+.icon .active {
   transform: scale(1.3);
-  border-color: rgb(92, 92, 92);
-}
-
-.active.iconButton:hover {
-  transform: scale(1.3);
-  border-color: rgb(92, 92, 92);
+  @apply border-gray-800;
 }
 
 .tooltip {
@@ -57,11 +36,6 @@
   border-width: 5px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.75) transparent transparent transparent;
-}
-
-.iconButton:hover {
-  transform: scale(1.1);
-  border-color: grey;
 }
 
 .iconButton:hover .tooltip {

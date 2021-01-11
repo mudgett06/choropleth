@@ -77,7 +77,7 @@ handler.get(async (req, res) => {
 handler.post(async (req, res) => {
   const update = await req.db.collection("maps").insertOne({
     ...req.body,
-    owner: req.user.username,
+    owner: req.user?.username || null,
     features: req.body.features.map((feat) => ({
       ...feat,
       _id: ObjectId(feat._id),

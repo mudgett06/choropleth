@@ -27,7 +27,7 @@ export default function EditMap({ mapShell }) {
     }
   }, []);
   const router = useRouter();
-  if (mapShell.owner !== user?.username) {
+  if (mapShell.owner != user?.username) {
     //router.push(`/maps/${map._id.toString()}`);
   }
   return (

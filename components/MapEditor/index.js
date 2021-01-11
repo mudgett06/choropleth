@@ -2,6 +2,7 @@ import { useEffect, useContext, useState } from "react";
 import Map from "../Map";
 import IconsBar from "./IconsBar";
 import styles from "./editor.module.css";
+import componentStyles from "../../styles/components.module.css";
 import EditorContext, { EditorProvider } from "./context";
 import DataSettings from "./EditorPages/DataSettings";
 import FilterSettings from "./EditorPages/FilterSettings";
@@ -64,13 +65,10 @@ function Editor() {
     <>
       <div
         style={mapFullscreen ? { marginTop: 0 } : {}}
-        className={styles.container}
+        className={"w-full flex items-center content-center justify-center"}
       >
         {!mapFullscreen ? (
-          <section
-            className={styles.column}
-            style={{ width: "33%", height: "60vh" }}
-          >
+          <section className={"flex-grow"}>
             <IconsBar />
             <div className={styles.outerPageContainer}>
               {takingScreenshot ? (
@@ -91,13 +89,7 @@ function Editor() {
         ) : (
           <></>
         )}
-        <section
-          className={styles.column}
-          style={{
-            width: mapFullscreen ? "calc(100% - 2rem)" : "calc(50% - 2rem)",
-            height: mapFullscreen ? "90vh" : "60vh",
-          }}
-        >
+        <section className={mapFullscreen ? "w-full h-full" : "w-96 h-96"}>
           <div className={styles.headingContainer}>
             <div className={styles.left}>
               <h1 className={styles.mapTitle}>{name}</h1>

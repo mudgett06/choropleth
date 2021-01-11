@@ -5,6 +5,7 @@ import styles from "./map.module.css";
 import ChoroplethBar from "./ChoroplethBar";
 import DataDisplayBox from "./DataDisplayBox";
 import Sidebar from "./Sidebar";
+import SidebarIcons from "./SidebarIcons";
 import { styleClosure } from "../../lib/map/style";
 import MapContext, { MapProvider } from "./context";
 import SideButtons from "./SideButtons";
@@ -31,7 +32,6 @@ export default function Map({ map, embed, editor }) {
 function MapConsumer({ editor, embed }) {
   const mapRef = useRef();
   const {
-    activeData,
     setActiveData,
     activeChoropleth,
     activeFilters,
@@ -66,6 +66,7 @@ function MapConsumer({ editor, embed }) {
   useEffect(() => {
     if (!leafletMap && geojson) {
       const tempLeafletMap = L.map("map", { zoomDelta: 0.1, zoomSnap: 0.1 });
+      tempLeafletMap.zoomControl.setPosition("topright");
       let maxBounds;
       if (map.bounds) {
         maxBounds = L.latLngBounds(map.bounds).pad(0.25);
@@ -147,6 +148,7 @@ function MapConsumer({ editor, embed }) {
         rel="stylesheet"
         href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css"
       />
+      <SidebarIcons />
       <div
         className={styles.mapContainer}
         ref={mapRef}
@@ -162,6 +164,7 @@ function MapConsumer({ editor, embed }) {
             : {}
         }
       >
+        <Sidebar />
         {featuresLoading ? (
           <div className={styles.loadingOverlay}>
             <DotLoader css={override} size={60} color={"#5A5A5A"} />
@@ -179,8 +182,6 @@ function MapConsumer({ editor, embed }) {
           <></>
         )}
         {activeChoropleth ? <ChoroplethBar /> : <></>}
-        <Sidebar />
-        {activeData ? <DataDisplayBox /> : <></>}
         <div id="map" className={styles.map} />
       </div>
     </>

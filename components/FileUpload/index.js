@@ -6,7 +6,7 @@ import DotLoader from "react-spinners/DotLoader";
 import { css } from "@emotion/core";
 import { useRouter } from "next/router";
 
-export default function Dropzone() {
+export default function FileUpload() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const handleFile = (data, extension) => parseUpload(data, extension, router);

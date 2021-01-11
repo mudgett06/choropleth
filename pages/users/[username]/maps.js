@@ -2,12 +2,10 @@ import Head from "next/head";
 import database from "../../../middleware/database";
 import nc from "next-connect";
 import { getMapsByUsername } from "../../../lib/db";
-import { toProperCase } from "../../../lib/utility";
 import Layout from "../../../components/Layout";
 import { useUser } from "../../../lib/hooks";
 import MapCollection from "../../../components/MapCollection";
 import FileUpload from "../../../components/FileUpload";
-String.prototype.toProperCase = toProperCase;
 export default function UserMaps({ maps, pageUsername }) {
   const [user, { mutate }] = useUser();
   return (

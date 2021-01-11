@@ -2,16 +2,10 @@ import { useState, useRef } from "react";
 import Layout from "../../../components/Layout";
 import Message from "../../../components/Message";
 import styles from "../../../styles/Settings.module.css";
-import {
-  spliceOutCopy,
-  toProperCase,
-  spliceUpdateCopy,
-} from "../../../lib/utility";
+import { spliceOutCopy, spliceUpdateCopy } from "../../../lib/utility";
 import { useUser } from "../../../lib/hooks";
 import axios from "axios";
 import { checkCredential, login } from "../../../lib/api/auth";
-
-String.prototype.toProperCase = toProperCase;
 
 export default function UserSettings() {
   const [state, setState] = useState({
