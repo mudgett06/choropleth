@@ -2,9 +2,7 @@ import { useState, useRef } from "react";
 import Layout from "../../../components/Layout";
 import Message from "../../../components/Message";
 import styles from "../../../styles/Settings.module.css";
-import { spliceOutCopy, spliceUpdateCopy } from "../../../lib/utility";
 import { useUser } from "../../../lib/hooks";
-import axios from "axios";
 import { checkCredential, login } from "../../../lib/api/auth";
 
 export default function UserSettings() {
@@ -29,7 +27,6 @@ export default function UserSettings() {
 
   return (
     <Layout>
-      <Message></Message>
       <div className={styles.container}>
         <h1>Account Settings</h1>
         {user ? (
@@ -101,11 +98,7 @@ export default function UserSettings() {
                   </div>
                 )}
 
-                {state[loginType].message ? (
-                  <Message {...state[loginType].message}></Message>
-                ) : (
-                  <></>
-                )}
+                {state[loginType].message ? <p>Error</p> : <></>}
               </>
             ))}
           </>
